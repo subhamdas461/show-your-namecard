@@ -1,0 +1,7 @@
+{
+    "name": "contributors-gallery",
+    "type": "module",
+    "scripts": {
+        "update-readme": "node update-readme.js"
+    }
+}

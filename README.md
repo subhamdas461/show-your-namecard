@@ -1,3 +1,5 @@
+<<<<<<< Updated upstream
+
 # 🌟 Contributors Gallery
 
 A modern, animated web page that beautifully displays project contributors using data from a `contributors.json` file.  
@@ -13,23 +15,23 @@ Built with **HTML**, **CSS**, and **JavaScript** — lightweight, fast, and full
 
 ## 🧑‍💻 Contributors
 
-Thanks to all our amazing contributors 💚  
+Thanks to all our amazing contributors 💚
 
 <!-- CONTRIBUTORS-START -->
+
 | Avatar | Name | Role | GitHub | Live Site |
-|:--:|:--|:--|:--:|:--:|
+| :----: | :--- | :--- | :----: | :-------: |
+
 <!-- CONTRIBUTORS-END -->
 
 ---
 
 ## 💡 Features
 
-- ⚡ **Dynamic Data** — Fetches contributor info from `contributors.json`
-- 🖼️ **Automatic GitHub Avatars** — No need to upload profile pictures
-- 🧠 **Smart Live Site Detection** — Adds a “Live Site” button if available
-- 💫 **Modern Animated UI** — Smooth hover effects, gradients, and glowing borders
-- 📱 **Responsive Design** — Works beautifully on all devices
+-   ⚡ **Dynamic Data** — Fetches contributor info from `contributors.json`
+-   🖼️ **Automatic GitHub Avatars** — No need to upload profile pictures
+-   🧠 **Smart Live Site Detection** — Adds a “Live Site” button if available
+-   💫 **Modern Animated UI** — Smooth hover effects, gradients, and glowing borders
+-   📱 **Responsive Design** — Works beautifully on all devices
 
 ---
-
-
