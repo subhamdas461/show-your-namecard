@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Subham Das",
+        "role": "SDE at Samsung",
+        "github": "https://github.com/subhamdas461",
+        "bio": "Passionate about clean UI, animations, and modern frontend architectures. Use of AI in web development excites me."
+    },
+    {
+        "name": "Anjali Mehta(Dummy)",
+        "role": "UI/UX Designer",
+        "github": "https://github.com/anjalimehta",
+        "bio": "Design thinker with a love for simplicity and delightful user experiences."
+    },
+    {
+        "name": "Rohit Sharma(Dummy)",
+        "role": "Full Stack Engineer",
+        "github": "https://github.com/rohitsharma",
+        "bio": "Building seamless experiences from backend to frontend."
+    }
+]
