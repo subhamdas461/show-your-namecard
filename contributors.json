@@ -22,5 +22,12 @@
         "role": "Student",
         "github": "https://github.com/Dreamstick9",
         "bio": "Passionate about creating user-friendly interfaces and contributing to open source projects."
+    },
+      {
+        "name": "Abhay Kumar",
+        "role": "Full Stack Engineer",
+        "github": "https://github.com/Sweatypenguin624",
+        "bio": "Trying and learning new things."
     }
 ]
+
