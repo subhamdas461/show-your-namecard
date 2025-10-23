@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-
 # 🌟 Contributors Gallery
 
 A modern, animated web page that beautifully displays project contributors using data from a `contributors.json` file.  
