@@ -1,37 +1,44 @@
-name: Update README Contributors
+name: 🔄 Auto Update README Contributors
 
 permissions:
-  contents: write 
+  contents: write  # allows the workflow to push changes to repo
 
 on:
+  # Runs when a PR is merged or a direct commit happens on main
   push:
-    branches: [master]
+    branches:
+      - master
     paths:
-      - 'contributors.json'
-  workflow_dispatch:  # allows manual trigger
+      - 'contributors.json'  # only trigger if contributors file changes
+
+  # Optional: manually trigger from GitHub Actions tab
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: 🧩 Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # ensures we can commit and push
 
-      - name: Set up Node.js
+      - name: 🟩 Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Run update script
-        run: |
-          npm install
-          npm run update-readme
+      - name: ⚙️ Install dependencies
+        run: npm install
 
-      - name: Commit and push changes
+      - name: 🧠 Run update script
+        run: npm run update-readme
+
+      - name: 💾 Commit and push changes
         run: |
           git config user.name "GitHub Action"
           git config user.email "action@github.com"
           git add README.md
-          git commit -m "🔄 Auto-update contributors list" || echo "No changes"
+          git commit -m "🔄 Auto-update contributors list" || echo "No changes to commit"
           git push
