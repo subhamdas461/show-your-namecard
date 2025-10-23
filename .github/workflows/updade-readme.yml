@@ -1,0 +1,34 @@
+name: Update README Contributors
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'contributors.json'
+  workflow_dispatch:  # allows manual trigger
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run update script
+        run: |
+          npm install
+          npm run update-readme
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add README.md
+          git commit -m "🔄 Auto-update contributors list" || echo "No changes"
+          git push
