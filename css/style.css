@@ -2,19 +2,19 @@
 
 :root {
     /* Dark theme (default) */
-    --bg-primary: #121212;
-    --bg-secondary: #1e1e1e;
+    --bg-primary: #0f0f0f;
+    --bg-secondary: #1a1a1a;
     --bg-card: #1c1c1e;
-    --text-primary: #fff;
+    --text-primary: #ffffff;
     --text-secondary: #aaa;
     --text-tertiary: #ccc;
-    --accent-color: #00ffc6;
+    --accent-color: #00ffea;
     --accent-hover: #00cba3;
-    --shadow-color: rgba(0, 255, 198, 0.1);
+    --shadow-color: rgba(0, 255, 234, 0.2);
+    --glow-color: rgba(0, 255, 234, 0.5);
 }
 
 [data-theme="light"] {
-    /* Light theme */
     --bg-primary: #f8f9fa;
     --bg-secondary: #ffffff;
     --bg-card: #ffffff;
@@ -23,7 +23,8 @@
     --text-tertiary: #495057;
     --accent-color: #007bff;
     --accent-hover: #0056b3;
-    --shadow-color: rgba(0, 123, 255, 0.1);
+    --shadow-color: rgba(0, 123, 255, 0.2);
+    --glow-color: rgba(0, 123, 255, 0.4);
 }
 
 * {
@@ -34,26 +35,37 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
-    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px 20px;
-    transition: background 0.3s ease, color 0.3s ease;
+    color: var(--text-primary);
+    background: linear-gradient(270deg, #0f0f0f, #1a1a1a, #0f0f0f, #1a1a1a);
+    background-size: 800% 800%;
+    animation: animatedGradient 20s ease infinite;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Animated gradient */
+@keyframes animatedGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
     max-width: 1100px;
     width: 100%;
     text-align: center;
+    z-index: 1;
 }
 
 .title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: var(--accent-color);
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
     animation: fadeInDown 1s ease;
 }
 
@@ -61,6 +73,8 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
+    position: relative;
+    z-index: 2;
 }
 
 .card {
@@ -68,7 +82,7 @@ body {
     border-radius: 20px;
     padding: 25px;
     box-shadow: 0 0 20px var(--shadow-color);
-    transition: all 0.4s ease;
+    transition: all 0.4s ease, box-shadow 0.4s ease;
     position: relative;
     overflow: hidden;
     cursor: pointer;
@@ -96,6 +110,10 @@ body {
     opacity: 1;
 }
 
+.card:hover {
+    box-shadow: 0 0 30px var(--glow-color), 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .card-content {
     position: relative;
     z-index: 2;
@@ -108,17 +126,19 @@ body {
     object-fit: cover;
     border: 3px solid var(--accent-color);
     margin-bottom: 1rem;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover .avatar {
     transform: scale(1.1);
+    box-shadow: 0 0 15px var(--glow-color);
 }
 
 .name {
     font-size: 1.3rem;
     font-weight: 600;
     color: var(--text-primary);
+    text-shadow: 0 0 6px var(--glow-color);
 }
 
 .role {
@@ -133,7 +153,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.github-link, .website-link  {
+.github-link, .website-link {
     display: inline-block;
     padding: 8px 16px;
     background: var(--accent-color);
@@ -141,7 +161,7 @@ body {
     border-radius: 25px;
     text-decoration: none;
     font-weight: 600;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
 }
 
 .github-link:hover, .website-link:hover {
@@ -153,22 +173,13 @@ body {
 }
 
 @keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes rotate {
-    to {
-        transform: rotate(360deg);
-    }
-}
+@keyframes rotate { to { transform: rotate(360deg); } }
 
+/* Theme toggle */
 .theme-toggle {
     position: absolute;
     top: 20px;
@@ -187,13 +198,13 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, transform 0.3s ease;
     box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 .theme-btn:hover {
     background: var(--accent-color);
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(180deg);
     color: var(--bg-secondary);
 }
 
@@ -202,6 +213,77 @@ body {
     transition: transform 0.3s ease;
 }
 
-.theme-btn:hover .theme-icon {
-    transform: rotate(180deg);
+/* Responsive */
+@media (max-width: 768px) {
+    .title { font-size: 2rem; }
+    .card { padding: 20px; }
+    .avatar { width: 70px; height: 70px; }
+}
+/* Neon glow for buttons and links */
+.github-link, .website-link, .theme-btn {
+    transition: all 0.3s ease, box-shadow 0.3s ease;
+}
+
+.github-link:hover,
+.website-link:hover,
+.theme-btn:hover {
+    box-shadow: 0 0 8px var(--accent-color),
+                0 0 16px var(--accent-color),
+                0 0 24px var(--accent-color),
+                0 0 32px var(--accent-color);
+}
+
+/* Card hover neon glow */
+.card:hover {
+    box-shadow: 0 0 15px var(--accent-color),
+                0 0 25px var(--accent-color),
+                0 0 35px var(--accent-color),
+                0 10px 40px rgba(0, 255, 198, 0.5);
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Avatar glow on hover */
+.avatar:hover {
+    box-shadow: 0 0 10px var(--accent-color),
+                0 0 20px var(--accent-color),
+                0 0 30px var(--accent-color),
+                0 0 40px var(--accent-color);
+}
+
+/* Neon text glow for titles */
+.title {
+    text-shadow: 0 0 5px var(--accent-color),
+                 0 0 10px var(--accent-color),
+                 0 0 20px var(--accent-color);
+}
+
+.name {
+    text-shadow: 0 0 2px var(--accent-color),
+                 0 0 5px var(--accent-color);
+}
+.cursor-dot,
+.cursor-dot-outline {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    z-index: 9999;
+    mix-blend-mode: difference;
+}
+
+.cursor-dot {
+    width: 12px;
+    height: 12px;
+    background-color: #00ffea;
+    box-shadow: 0 0 8px #00ffea, 0 0 16px #00ffea;
+}
+
+.cursor-dot-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00ffea;
+    box-shadow: 0 0 15px #00ffea, 0 0 25px #00ffea;
 }
