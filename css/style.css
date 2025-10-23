@@ -133,7 +133,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.github-link {
+.github-link, .website-link  {
     display: inline-block;
     padding: 8px 16px;
     background: var(--accent-color);
@@ -144,8 +144,12 @@ body {
     transition: background 0.3s;
 }
 
-.github-link:hover {
+.github-link:hover, .website-link:hover {
     background: var(--accent-hover);
+}
+
+.website-link {
+    margin-top: 8px;
 }
 
 @keyframes fadeInDown {
