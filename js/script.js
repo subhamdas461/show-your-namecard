@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById("cards-container");
+    const themeBtn = document.getElementById("theme-btn");
+    const themeIcon = themeBtn.querySelector(".theme-icon");
+    
+    const savedTheme = localStorage.getItem("theme") || "dark";
+    document.documentElement.setAttribute("data-theme", savedTheme);
+    updateThemeIcon(savedTheme);
+
+    themeBtn.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+        
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+        updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+        themeIcon.textContent = theme === "dark" ? "☀" : "☽";
+    }
 
     fetch("contributors.json")
         .then((res) => res.json())
@@ -8,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const card = document.createElement("div");
                 card.classList.add("card");
 
-                // Extract GitHub username from URL
                 const githubURL = contributor.github;
                 const username = githubURL
                     .split("github.com/")[1]
@@ -29,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         })
         .catch((err) => {
-            container.innerHTML = `<p style="color: red;">Failed to load contributors 😞</p>`;
+            container.innerHTML = `<p style="color: red;">Failed to load contributors</p>`;
             console.error(err);
         });
 });
