@@ -1,5 +1,8 @@
 name: Update README Contributors
 
+permissions:
+  contents: write 
+
 on:
   push:
     branches: [master]
