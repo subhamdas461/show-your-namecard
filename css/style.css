@@ -166,13 +166,14 @@ body {
 }
 
 .theme-toggle {
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     z-index: 1000;
 }
 
 .theme-btn {
+    color: var(--text-primary);
     background: var(--bg-card);
     border: 2px solid var(--accent-color);
     border-radius: 50%;
@@ -189,6 +190,7 @@ body {
 .theme-btn:hover {
     background: var(--accent-color);
     transform: scale(1.1);
+    color: var(--bg-secondary);
 }
 
 .theme-icon {
