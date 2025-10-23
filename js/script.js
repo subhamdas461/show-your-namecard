@@ -40,6 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
             <p class="role">${contributor.role}</p>
             <p class="bio">${contributor.bio}</p>
             <a href="${contributor.github}" target="_blank" class="github-link">View GitHub</a>
+            ${
+                contributor.website && contributor.website.trim() !== ""
+                ? `<a href="${contributor.website}" target="_blank" class="website-link">View Website</a>`
+                : ""
+            }
           </div>
         `;
 
