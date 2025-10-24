@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
-:root {
-    /* Dark theme (default) */
+:root{/* Dark theme (default) */
     --bg-primary: #0f0f0f;
     --bg-secondary: #1a1a1a;
     --bg-card: #1c1c1e;
@@ -10,12 +9,12 @@
     --text-tertiary: #ccc;
     --accent-color: #00ffea;
     --accent-hover: #00cba3;
-    --shadow-color: rgba(0, 255, 234, 0.2);
-    --glow-color: rgba(0, 255, 234, 0.5);
+    --shadow-color: rgba(0, 255, 234, 0.1); /* lower intensity */
+    --glow-color: rgba(0, 255, 234, 0.2);   /* lower intensity */
 }
 
 [data-theme="light"] {
-    --bg-primary: #f8f9fa;
+    --bg-primary: #ffffff; /* changed to pure white */
     --bg-secondary: #ffffff;
     --bg-card: #ffffff;
     --text-primary: #212529;
@@ -23,8 +22,9 @@
     --text-tertiary: #495057;
     --accent-color: #007bff;
     --accent-hover: #0056b3;
-    --shadow-color: rgba(0, 123, 255, 0.2);
-    --glow-color: rgba(0, 123, 255, 0.4);
+    --shadow-color: rgba(0, 123, 255, 0.1); /* lower intensity */
+    --glow-color: rgba(0, 123, 255, 0.2);   /* lower intensity */
+  
 }
 
 * {
@@ -45,6 +45,9 @@ body {
     background-size: 800% 800%;
     animation: animatedGradient 20s ease infinite;
     transition: background 0.5s ease, color 0.5s ease;
+    background: var(--bg-primary); /* Turns background white in light mode */
+    animation: none;   
+    
 }
 
 /* Animated gradient */
