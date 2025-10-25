@@ -39,6 +39,7 @@ Your efforts make this project shine ✨
 | <img src="https://github.com/Sweatypenguin624.png" width="60" height="60" style="border-radius:50%;"> | **Abhay Kumar** | Full Stack Engineer | [GitHub](https://github.com/Sweatypenguin624) | [Live](https://Sweatypenguin624.github.io/) |
 | <img src="https://github.com/Ayushdas1904.png" width="60" height="60" style="border-radius:50%;"> | **Ayush Das** | Full Stack Engineer | [GitHub](https://github.com/Ayushdas1904) | [Live](https://Ayushdas1904.github.io/) |
 | <img src="https://github.com/mohamedation.png" width="60" height="60" style="border-radius:50%;"> | **mohamedation** | Full Stack Developer | [GitHub](https://github.com/mohamedation) | [Live](https://mohamedation.github.io/) |
+| <img src="https://github.com/Archisman-NC.png" width="60" height="60" style="border-radius:50%;"> | **Archisman-NC** | Full Stack Developer | [GitHub](https://github.com/Archisman-NC) | [Live](https://Archisman-NC.github.io/) |
 <!-- CONTRIBUTORS-END -->
 
 </div>
